@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export default function TransactionList({transactions}) {
   const deleteTransaction = async (id) => {
     await axios.delete(`https://the-best-transaction-server.herokuapp.com/${id}`);

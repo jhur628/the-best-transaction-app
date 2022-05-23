@@ -1,5 +1,6 @@
 import './App.css';
 import TransactionList from './components/transactionsList/TransactionList';
+import CreateTransactions from './components/createTransactions/CreateTransactions';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -26,8 +27,6 @@ function App() {
     getData();
   }, []);
 
-  console.log(transactions)
-
   return (
     <div className="App">
       <header>
@@ -39,7 +38,10 @@ function App() {
       <div>
         Starting Balance: {startingBalance}
       </div>
-      <TransactionList transactions={transactions}/>
+      <div>
+        <TransactionList transactions={transactions}/>
+        <CreateTransactions />
+      </div>
     </div>
   );
 }
