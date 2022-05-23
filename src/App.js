@@ -1,6 +1,9 @@
 import './App.css';
 import TransactionList from './components/transactionsList/TransactionList';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+
 
 function App() {
   const profile = {
@@ -11,23 +14,19 @@ function App() {
 
   const { name, accountNumber, startingBalance} = profile
   
-  const [ transactions, setTransactions ] = useState();
+  const [ transactions, setTransactions ] = useState([]);
+
+  const getData = async () => {
+    const transactions = await axios('https://the-best-transaction-server.herokuapp.com/');
+    const transactionsData = transactions.data
+    setTransactions(transactionsData)
+  }
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const result = await fetch('https://the-best-transaction-server.herokuapp.com/');
-        const body = await result.json();
-        setTransactions(body);
-      } catch (err) {
-        console.log(err)
-      };
-    }
-
     getData();
-  }, [])
+  }, []);
 
-  console.log(transactions);
+  console.log(transactions)
 
   return (
     <div className="App">
