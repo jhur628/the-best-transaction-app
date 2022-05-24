@@ -14,6 +14,7 @@ function App() {
   }
 
   const { name, accountNumber, startingBalance} = profile
+  let currentBalance = startingBalance;
   
   const [ transactions, setTransactions ] = useState([]);
 
@@ -27,13 +28,17 @@ function App() {
     getData();
   }, []);
 
+  transactions.forEach((transaction, i) => {
+    transaction.type === "CONTRIBUTION" ? currentBalance += transaction.amount : currentBalance -= transaction.amount
+  })
+
   return (
     <div className="App">
       <header>
-        The Best Transaction App
+        <h1>The Best Transaction App</h1>
       </header>
       <div>
-        Welcome back {name} ({accountNumber})!
+        Welcome back {name} (acct#: {accountNumber})!
       </div>
       <div>
         Starting Balance: {startingBalance}
@@ -42,6 +47,8 @@ function App() {
         <TransactionList transactions={transactions}/>
         <CreateTransactions />
       </div>
+      <h1>Current Balance:</h1>
+      <h2>{currentBalance}</h2>
     </div>
   );
 }

@@ -25,13 +25,14 @@ export default function CreateTransactions() {
 
   return (
     <div>
-        <input type='number' placeholder='Enter amount...' onChange={handleAmountChange} required/>
-        <select value={type} onChange={handleTypeSelect}>
-          <option value='contribution'>Contribution</option>
-          <option value='distribution'>Distribution</option>
-          <option value='bill-payment'>Bill Payment</option>
-        </select>
-        <button onClick={() => createTransaction()}>Create Transaction</button>
+      <h1>Make a transaction:</h1>
+      <input type='number' placeholder='Enter amount...' onChange={handleAmountChange} required/>
+      <select value={type} onChange={handleTypeSelect}>
+        <option value='contribution'>Contribution</option>
+        <option value='distribution'>Distribution</option>
+        <option value='bill-payment'>Bill Payment</option>
+      </select>
+      <button onClick={() => createTransaction()}>Create Transaction</button>
     </div>
   )
 }

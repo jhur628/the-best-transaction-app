@@ -14,6 +14,7 @@ export default function TransactionList({transactions}) {
 
   return (
     <div>
+      <h1>Transactions:</h1>
       {mappedTransactions}
     </div>
   );
