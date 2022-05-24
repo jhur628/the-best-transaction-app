@@ -2,28 +2,36 @@ import axios from 'axios';
 import { useState } from 'react';
 
 export default function CreateTransactions() {
-  const [ input, setInput ] = useState('');
+  const [ amount, setAmount ] = useState(0);
+  const [ type, setType ] = useState("contribution")
 
-  const handleChange = (e) => {
-    setInput(e.target.value);
-  }
+  const handleAmountChange = (e) => {
+    setAmount(e.target.value);
+  };
 
-  console.log(input)
+  const handleTypeSelect = (e) => {
+    setType(e.target.value)
+  };
+
+  const createTransaction = async () => {
+    await axios.post(`https://the-best-transaction-server.herokuapp.com/${type}`, {
+      amount: amount
+    });
+    window.location.reload();
+  };
+
+  console.log(amount)
+  console.log(type)
 
   return (
     <div>
-      <form>
-        <input type='number' onChange={handleChange} />
-        <button type='submit' >Create Contribution</button>
-      </form>
-      <form>
-        <input type='number' onChange={handleChange} />
-        <button>Create Distribution</button>
-      </form>
-      <form>
-        <input type='number' onChange={handleChange} />
-        <button>Create Bill Payment</button>
-      </form>
+        <input type='number' placeholder='Enter amount...' onChange={handleAmountChange} required/>
+        <select value={type} onChange={handleTypeSelect}>
+          <option value='contribution'>Contribution</option>
+          <option value='distribution'>Distribution</option>
+          <option value='bill-payment'>Bill Payment</option>
+        </select>
+        <button onClick={() => createTransaction()}>Create Transaction</button>
     </div>
   )
 }
