@@ -29,7 +29,9 @@ function App() {
   }, []);
 
   transactions.forEach((transaction, i) => {
-    transaction.type === "CONTRIBUTION" ? currentBalance += transaction.amount : currentBalance -= transaction.amount
+    transaction.type === "CONTRIBUTION" 
+      ? currentBalance += transaction.amount 
+      : currentBalance -= transaction.amount
   })
 
   return (

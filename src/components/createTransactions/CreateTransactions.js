@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 export default function CreateTransactions() {
-  const [ amount, setAmount ] = useState(0);
+  const [ amount, setAmount ] = useState();
   const [ type, setType ] = useState("contribution")
 
   const handleAmountChange = (e) => {
