@@ -19,3 +19,7 @@ THANK YOU!
 GitHub Repository: [https://github.com/jhur628/the-best-transaction-app](https://github.com/jhur628/the-best-transaction-app)
 
 Deployed Application: [https://the-best-transaction-app.herokuapp.com/](https://the-best-transaction-app.herokuapp.com/)
+
+Deployed Server: [https://the-best-transaction-server.herokuapp.com/](https://the-best-transaction-server.herokuapp.com/)
+
+Server Repository: [https://github.com/jhur628/transaction-app-server](https://github.com/jhur628/transaction-app-server)
